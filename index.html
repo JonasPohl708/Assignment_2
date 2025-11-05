@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>PathFinder — Create account</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <div class="wrapper">
+    <a class="skip-link" href="#main">Skip to main content</a>
+
+    <header class="site-header" role="banner">
+      <h1>PathFinder</h1>
+      <h2>find your match</h2>
+    </header>
+
+    <nav class="site-nav" aria-label="Primary">
+      <ul>
+        <li><a href="index.html" aria-current="page">Create account</a></li>
+        <li><a href="about.html">About</a></li>
+      </ul>
+    </nav>
+
+    <main id="main" class="container" role="main">
+      <article class="card" aria-labelledby="form-title">
+        <h2 id="form-title" class="card-title">Create your account</h2>
+
+        <form action="http://www.no-where.com/formhandler.php" method="get" novalidate aria-describedby="form-help">
+          <p id="form-help" class="hint">Use <kbd>Tab</kbd> to move between fields. Errors appear under a field if its value is invalid.</p>
+
+          <!-- Account details -->
+          <fieldset class="panel">
+            <legend>Account details</legend>
+            <div class="grid">
+              <div class="field">
+                <label for="email">Email <span class="req" aria-hidden="true">*</span></label>
+                <input id="email" name="email" type="email" required autocomplete="email" placeholder="name@example.com"
+                       aria-describedby="email-hint email-err" />
+                <small id="email-hint" class="hint">We’ll send a confirmation link.</small>
+                <small id="email-err" class="error" aria-live="polite">Enter a valid email address.</small>
+              </div>
+
+              <div class="field">
+                <label for="password">Password <span class="req" aria-hidden="true">*</span></label>
+                <input id="password" name="password" type="password" required
+                       pattern="(?=.*\\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                       title="At least 8 characters including 1 number, 1 uppercase and 1 lowercase letter."
+                       aria-describedby="pwd-hint pwd-err" />
+                <small id="pwd-hint" class="hint">Min 8 chars, 1 number, 1 uppercase, 1 lowercase.</small>
+                <small id="pwd-err" class="error" aria-live="polite">Password must meet the requirements.</small>
+              </div>
+
+              <div class="field">
+                <label for="username">Username <span class="req" aria-hidden="true">*</span></label>
+                <input id="username" name="username" type="text" required minlength="3" maxlength="20"
+                       pattern="[A-Za-z0-9-]{3,20}" placeholder="your-handle"
+                       aria-describedby="username-hint username-err" />
+                <small id="username-hint" class="hint">3–20 letters, numbers, or dashes.</small>
+                <small id="username-err" class="error" aria-live="polite">Use 3–20 letters, numbers, or dashes (no spaces).</small>
+              </div>
+            </div>
+          </fieldset>
+
+          <!-- Personal information -->
+          <fieldset class="panel">
+            <legend>Personal information</legend>
+            <div class="grid">
+              <div class="field">
+                <label for="firstName">First Name <span class="req" aria-hidden="true">*</span></label>
+                <input id="firstName" name="firstName" type="text" required autocomplete="given-name" />
+              </div>
+
+              <div class="field">
+                <label for="lastName">Last Name <span class="req" aria-hidden="true">*</span></label>
+                <input id="lastName" name="lastName" type="text" required autocomplete="family-name" />
+              </div>
+
+              <div class="field">
+                <label for="phone">Phone Number<span class="req" aria-hidden="true">*</span></label>
+                <input id="phone" name="phone" type="tel" inputmode="tel"
+                       pattern="\\+?[0-9\\-\\s]{7,20}" placeholder="+49 151 2345678" required
+                       title="Digits, spaces or dashes (e.g., +49 151 2345678)" />
+              </div>
+
+              <div class="field">
+                <label for="birthdate">Date of birth<span class="req" aria-hidden="true">*</span></label>
+                <input id="birthdate" name="birthdate" type="date" />
+              </div>
+
+              <div class="field">
+                <label for="country">Country <span class="req" aria-hidden="true">*</span></label>
+                <select id="country" name="country" required>
+                  <option value="">Choose your country</option>
+                  <option>Denmark</option>
+                  <option>Germany</option>
+                  <option>Sweden</option>
+                  <option>Norway</option>
+                  <option>Finland</option>
+                  <option>Other</option>
+                </select>
+              </div>
+
+              <div class="field">
+                <label for="city">City</label>
+                <input id="city" name="city" type="text" autocomplete="address-level2" />
+              </div>
+
+              <div class="field">
+                <label for="avatar">Profile Picture</label>
+                <input id="avatar" name="avatar" type="file" accept="image/*" />
+                <small class="hint">Accepts JPG, PNG, or GIF.</small>
+              </div>
+            </div>
+          </fieldset>
+
+          <!-- Preferences -->
+          <fieldset class="panel">
+            <legend>Preferences</legend>
+
+            <!-- account type radios (inline like mockup) -->
+            <div class="field radio-group" aria-describedby="accttype-err">
+              <span class="label">Account type <span class="req" aria-hidden="true">*</span></span>
+              <div class="choices-inline" role="radiogroup">
+                <input type="radio" id="type-candidate" name="accountType" value="candidate" required />
+                <label for="type-candidate">Candidate</label>
+
+                <input type="radio" id="type-employer" name="accountType" value="employer" />
+                <label for="type-employer">Employer</label>
+              </div>
+              <small id="accttype-err" class="error" aria-live="polite">Please choose an account type.</small>
+            </div>
+
+            <!-- interests checkboxes two columns like mockup -->
+            <div class="field">
+              <span class="label">Job interest<span class="req" aria-hidden="true">*</span></span>
+              <div class="choices-grid">
+                <div>
+                  <input type="checkbox" id="int-dev" name="interests" value="development" />
+                  <label for="int-dev">Software Development</label>
+                </div>
+                <div>
+                  <input type="checkbox" id="int-design" name="interests" value="design" />
+                  <label for="int-design">Design</label>
+                </div>
+                <div>
+                  <input type="checkbox" id="int-marketing" name="interests" value="marketing" />
+                  <label for="int-marketing">Marketing</label>
+                </div>
+                <div>
+                  <input type="checkbox" id="int-other" name="interests" value="other" />
+                  <label for="int-other">Other</label>
+                </div>
+              </div>
+            </div>
+
+            <div class="field">
+  <label for="experience">
+    Experience Level: <output id="expOut" for="experience">3</output>
+  </label>
+  <input
+    type="range"
+    id="experience"
+    name="experience"
+    min="0"
+    max="10"
+    value="3"
+    step="1"
+    oninput="expOut.value = this.value"
+  />
+</div>
+            <div class="field">
+              <label for="bio">Short bio</label>
+              <textarea id="bio" name="bio" rows="3" maxlength="500" placeholder="Tell us about yourself (max 500 characters)"></textarea>
+            </div>
+
+            <div class="field">
+              <label for="website">Portfolio / Website</label>
+              <input id="website" name="website" type="url" placeholder="https://example.com"
+                     pattern="https?://.*" title="Start with http:// or https://"
+                     aria-describedby="url-err" />
+              <small id="url-err" class="error" aria-live="polite">Please enter a valid URL (http:// or https://).</small>
+            </div>
+          </fieldset>
+
+          <!-- Agreements -->
+          <fieldset class="panel">
+            <legend>Agreements</legend>
+            <div class="field checkbox-required" aria-describedby="terms-err">
+              <input type="checkbox" id="terms" name="terms" required />
+              <label for="terms">I agree to the <a href="about.html#privacy">Terms and Conditions</a> <span class="req" aria-hidden="true">*</span></label>
+              <small id="terms-err" class="error" aria-live="polite">You must agree before submitting.</small>
+            </div>
+
+            <div class="field">
+              <input type="checkbox" id="newsletter" name="newsletter" />
+              <label for="newsletter">Send me product updates and job alerts</label>
+            </div>
+          </fieldset>
+
+          <div class="actions">
+            <button type="submit" class="btn">Create account</button>
+            <button type="reset" class="btn btn--secondary">Reset</button>
+          </div>
+        </form>
+      </article>
+
+      <aside class="card card-min" aria-labelledby="links-title">
+        <h3 id="links-title" class="card-title-small">Helpful links</h3>
+        <ul class="simple-list">
+          <li><a href="about.html">What is PathFinder?</a></li>
+        </ul>
+      </aside>
+    </main>
+
+    <footer class="site-footer" role="contentinfo">
+      <p>&copy; 2025 Jonas Pohl</p>
+    </footer>
+  </div>
+</body>
+</html>
